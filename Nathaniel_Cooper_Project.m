@@ -44,4 +44,8 @@ n0=[10000;10000;1000;1000;100]; % starting pop size with 10% biomass at next lev
 
 [T, Y] = ode45(@(t,y) LV_Predcom(y,rk,rd,ak,ad,bk,bd,bc,bg,qg,qc,qa),time,n0); % Solve ODE
 
+figure;
+plot(T,Y);
+xlabel('time'); ylabel(' Abundance of preditors and prey');
+legend({'K,abundance','D,abundance', 'G, abundance','C,abundance','A,abundance'});
 
