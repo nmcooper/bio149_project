@@ -69,8 +69,10 @@ time=1:100
 for i=1:time % solve ODE every seven days for 100 years 52 weeks * 100=5200 weekes
     n1(1)=n1(1)*.5 % preterbation
    p=betarnd(0.5,2.56); % capture efficeancy of prey C; A=0.5 B=2.56
-   ac=p; % capture efficeancy of prey C
+   ac=p;% capture efficeancy of prey C
+   ak=ac;
    ag=ac*(1-p); % capture efficeancy of prey G
+   ad=ag;
    [T, Y] = ode45(@(t,y) LV_Predcom(y,rk,rd,ak,ad,ag,ac,bk,bd,bc,bg,qg,qc,qa),time,n1); % Solve ODE
     n1=Y(end,1:5);
 end
